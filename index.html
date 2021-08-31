@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+        img {
+            width: 100%;
+        }
+        .selected {
+        background-color: rgb(235, 21, 224);
+      }
+    </style>
+  </head>
+
+  <body>
+<header>
+    <h1>Basbushka</h1>
+</header>
+       <section id="popUp">
+      <div id="luk">&#x2715
+      </div>
+      <article class="articlePopUp">
+        
+        <img src="" alt="" class="billedeMenu" />
+        <!-- <h2></h2> -->
+        <h3><span class="titel"></span></h3>
+        <p><span class="navn"></span></p>
+        <p><span class="kortbeskrivelse"></span></p>
+         <p>oprindelsesregion: <span class="oprindelsesregion"></span></p>
+       <p>pris: <span class="pris"></span></p>
+        <p><span class="langbeskrivelse"></span></p>
+      </article>
+    </section>
+
+
+      <nav>
+        <button data-kategori="Alle" class="alleValgt_btn">Alle</button>
+        <button data-kategori="Forretter" class="forret_btn">Forretter</button>
+        <button data-kategori="Hovedretter" class="hovedret_btn">Hovedretter</button>
+        <button data-kategori="Desserter" class="dessert_btn">Desserter</button>
+      </nav>
+
+      <h3></h3>
+    <section class="menuContainer"></section>
+    <template>
+      <article class="temp_menuListe">
+        <img src="" alt="" class="billedeMenu" />
+        <h3 class="temp_menuNavn"></h3>
+        <p class="temp_kortBeskrivelse"></p>
+
+        <p class="temp_langBeskrivelse"></p>
+        <p class="temp_oprindelsesRegion"></p>
+        <p class="temp_pris"></p>
+      </article>
+    </template>
+
+
+
+
+    <script>
+      const url = "https://babushka-dd8a.restdb.io/rest/menu";
+      let titelSkift = document.querySelector("h2");
+      const minHeader = {
+        headers: {
+          "x-apikey": "600ec2fb1346a1524ff12de4",
+        },
+      };
+
+      document.addEventListener("DOMContentLoaded", start);
+      let filter = "alle";
+      let menuer;
+
+      function start() {
+        const filterKnapper = document.querySelectorAll("nav button");
+        document.querySelector(".alleValgt_btn").classList.add("selected");
+        filterKnapper.forEach((knap) => knap.addEventListener("click", filtrerMenuer));
+        hentData();
+      }
+
+      function filtrerMenuer() {
+        filter = this.dataset.kategori;
+        document.querySelector(".selected").classList.remove("selected");
+        this.classList.add("selected");
+        visMenuer();
+        titelSkift.textContent = this.textContent;
+        // console.log(this);
+      }
+
+      async function hentData() {
+        const JSONdata = await fetch(url, minHeader);
+        menuer = await JSONdata.json();
+        console.log("menuer", menuer);
+        visMenuer();
+      }
+
+      //kategori - navn - id - billednavn - kortbeskrivelse - langbeskrivelse - navn - oprindelsesregion - pris
+
+      function visMenuer() {
+          const main = document.querySelector(".menuContainer")
+          const emptyTemplate = document.querySelector("template").content;
+          main.textContent="";
+          menuer.forEach((menu) => {
+              if (filter == menu.kategori || filter == "alle"){
+                  const klon = emptyTemplate.cloneNode(true);
+                  klon.querySelector("img").src ="./medium/" + menu.billednavn + "-md.jpg";
+                  klon.querySelector(".temp_menuNavn").textContent = menu.navn;
+                  klon.querySelector(".temp_kortBeskrivelse").textContent= menu.kortbeskrivelse;
+                  klon.querySelector(".temp_pris").textContent = menu.pris + " dkk";
+                  klon.querySelector("article").addEventListener("click", visDetaljer(menu))
+                  main.appendChild(klon);
+              }
+          });
+
+          function visDetaljer (menu) {
+const popUp = document.querySelector("#popUp");
+
+          }
+
+      }
+    </script>
+  </body>
+</html>
