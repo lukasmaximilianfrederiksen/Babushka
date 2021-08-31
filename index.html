@@ -13,6 +13,40 @@
         .selected {
         background-color: rgb(235, 21, 224);
       }
+.menuContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+         #popUp {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        overflow: scroll;
+      }
+
+          #popUp .articlePopUp {
+        width: 80vw;
+        display: block;
+        margin: 4rem auto;
+        border-radius: 25px;
+        padding: 12px;
+        background-color: white;
+      }
+
+       #luk {
+        position: fixed;
+        padding: 1rem;
+        font-size: 1.7em;
+        font-weight: bolder;
+        color: #010101;
+        cursor: pointer;
+        left: 10vw;
+        top: 10vh;
+      }
     </style>
   </head>
 
@@ -24,24 +58,22 @@
       <div id="luk">&#x2715
       </div>
       <article class="articlePopUp">
-        
         <img src="" alt="" class="billedeMenu" />
         <!-- <h2></h2> -->
         <h3><span class="titel"></span></h3>
         <p><span class="navn"></span></p>
-        <p><span class="kortbeskrivelse"></span></p>
-         <p>oprindelsesregion: <span class="oprindelsesregion"></span></p>
-       <p>pris: <span class="pris"></span></p>
+         <p> <span class="oprindelsesregion"></span></p>
+       <p><span class="pris"></span></p>
         <p><span class="langbeskrivelse"></span></p>
       </article>
     </section>
 
 
       <nav>
-        <button data-kategori="Alle" class="alleValgt_btn">Alle</button>
-        <button data-kategori="Forretter" class="forret_btn">Forretter</button>
-        <button data-kategori="Hovedretter" class="hovedret_btn">Hovedretter</button>
-        <button data-kategori="Desserter" class="dessert_btn">Desserter</button>
+        <button data-kategori="alle" class="alleValgt_btn">Alle</button>
+        <button data-kategori="forretter" class="forret_btn">Forretter</button>
+        <button data-kategori="hovedretter" class="hovedret_btn">Hovedretter</button>
+        <button data-kategori="desserter" class="dessert_btn">Desserter</button>
       </nav>
 
       <h3></h3>
@@ -86,7 +118,7 @@
         document.querySelector(".selected").classList.remove("selected");
         this.classList.add("selected");
         visMenuer();
-        titelSkift.textContent = this.textContent;
+        // titelSkift.textContent = this.textContent;
         // console.log(this);
       }
 
@@ -110,14 +142,21 @@
                   klon.querySelector(".temp_menuNavn").textContent = menu.navn;
                   klon.querySelector(".temp_kortBeskrivelse").textContent= menu.kortbeskrivelse;
                   klon.querySelector(".temp_pris").textContent = menu.pris + " dkk";
-                  klon.querySelector("article").addEventListener("click", visDetaljer(menu))
+                  klon.querySelector("article").addEventListener("click",  () => visDetaljer(menu))
                   main.appendChild(klon);
               }
           });
 
           function visDetaljer (menu) {
 const popUp = document.querySelector("#popUp");
+popUp.style.display = "block";
+popUp.querySelector("img").src = "./medium/" + menu.billednavn + "-md.jpg";
+popUp.querySelector(".navn").textContent = menu.navn;
+popUp.querySelector(".oprindelsesregion").textContent = menu.oprindelsesregion;
+popUp.querySelector(".langbeskrivelse").textContent= menu.langbeskrivelse;
+popUp.querySelector(".pris").textContent = menu.pris + " dkk";
 
+document.querySelector("#luk").addEventListener("click", () => (popUp.style.display ="none"))
           }
 
       }
