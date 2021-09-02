@@ -11,106 +11,22 @@
     <style>
 
         .top_titel {
-           
+           margin-top: 2rem;
+           margin-bottom: 2rem;
         }
+
+        *{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+        }
+
 h1 {
     text-align: center;
 font-family: 'Playfair Display', serif;
-font-size: 10vw;
+font-size: 15vw;
 color: #010101;
 }
-
-h3 {
-        font-family: 'Poppins', sans-serif;
-font-size: 1.5xrem;
-    
-}
-
-body {
-    background-color: #F8F8F8;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    
-}
-
-p {
-       font-family: 'Poppins', sans-serif;
-font-size: 1rem;
-color: rgba(0, 0, 0, 0.411);
-}
-
-
-.temp_pris {
-    color: rgba(0, 0, 0, 0.89);
-}
-header {
-    
-}
-
-        img {
-            width: 100%;
-            margin: auto;
-        display: block;
-        }
-        .selected {
-        background-color: #FC9E14;
-        color:rgba(0, 0, 0, 0.89)
-      }
-.menuContainer {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem
-      }
-
-
-      .billedeMenu {
-          transform: translateX(5vw);
-          width:300px;
-  height:300px;
-           object-fit:cover;
-  border-radius:10%;
-      }
-
-
-         #popUp {
-        display: none;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.6);
-        overflow: scroll;
-        z-index: 1;
-      }
-
-          #popUp .articlePopUp {
-        width: 30vw;
-        position: fixed;
-        left: 35%;
-        display: block;
-        margin: 4rem auto;
-        border-radius: 25px;
-        padding: 12px;
-        background-color: white;
-      }
-
-       #luk {
-        position: fixed;
-        padding: 1rem;
-        font-size: 1.7em;
-        font-weight: bolder;
-        color: #010101;
-        cursor: pointer;
-        left: 34vw;
-        top: 10vh;
-        z-index: 2;
-      }
-
-      .blur {
-           filter: blur(4px);
-  -webkit-filter: blur(4px);
-      }
 
 
       button {
@@ -123,7 +39,7 @@ border-radius:0.90em;
 box-sizing: border-box;
 text-decoration:none;
        font-family: 'Poppins', sans-serif;
-font-size: 1rem;
+font-size: 0.7rem;
 color: rgba(0, 0, 0, 0.411);
 font-weight:300;
 
@@ -131,6 +47,358 @@ text-align:center;
 transition: all 0.2s;
 cursor: pointer
     }
+@media screen and (min-width: 500px){
+
+  .menuContainer{
+  display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        justify-content: center;
+
+}
+h1 {
+    text-align: center;
+font-family: 'Playfair Display', serif;
+font-size: 14vw;
+color: #010101;
+}
+
+body {
+    background-color: #F8F8F8;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    
+}
+
+p {
+
+font-size: 0.8rem;
+
+}
+
+  
+}
+
+h3 {
+        font-family: 'Poppins', sans-serif;
+font-size: 1rem;
+padding: 1rem;
+color: #010101;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+body {
+    background-color: #F8F8F8;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    
+}
+
+.temp_kortBeskrivelse {
+       font-family: 'Poppins', sans-serif;
+font-size: 0.8rem;
+color: rgba(0, 0, 0, 0.411);
+padding-left: 1rem;
+max-width: 35ch;
+
+}
+
+
+
+.temp_pris{
+   color: #010101;
+     font-family: 'Poppins', sans-serif;
+font-size: 1.2rem;
+    max-width: 8ch;
+    font-weight: bolder;
+    margin-left: 1rem;
+    position: absolute;
+    bottom: 20%;
+    
+}
+
+.articlePopUp p{
+   color: rgba(0, 0, 0, 0.411);
+     font-family: 'Poppins', sans-serif;
+font-size: 0.8rem;
+    max-width: 50ch;  
+    margin-left: 1rem;
+    bottom: 20%;
+padding-top: 1rem;
+padding-bottom: 1rem;
+    
+}
+header {
+    
+}
+
+.p_container {
+  position: relative;
+  background-color: white;
+  border-radius: 1.15rem;
+     
+        z-index:2;
+      margin-top: -6vh;
+      height: 27vh;
+}
+
+article{
+  background: white;
+  border-radius: 2rem;
+  width: 80%;
+}
+        img {
+          position: relative;
+            width: 245px;
+            height: 170px;
+            object-fit: cover;
+            margin: auto;
+        display: block;
+        border-top-left-radius: 1.25rem;
+        border-top-right-radius: 1.25rem;
+    
+        z-index: 1;
+        
+        
+        }
+        .selected {
+        background-color: #FC9E14;
+        color:white;
+
+      }
+.menuContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        justify-content: center;
+        
+      }
+
+
+      .temp_menuListe {
+ place-self: center;
+ box-shadow: 9px 10px 12px rgba(0, 0, 0, 0.3)  ; 
+ width: 245px;
+            
+            margin-top: 5rem;
+            margin-bottom: 1vh;
+      }
+
+
+
+      .billedeMenu {
+          width:80vw;
+  height:300px;
+           object-fit:cover;
+  border-radius:2rem;
+  margin-right: 5vw;
+  z-index: 3;
+      }
+
+
+         #popUp {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        overflow: scroll;
+        z-index: 2;
+      }
+
+          #popUp .articlePopUp {
+        width: 80vw;
+        height: 80vh;
+        position: fixed;
+        display: block;
+        margin: 4rem auto;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        border-radius: 2rem;
+        background-color: white;
+      }
+
+.p_container_popup {
+  position: relative;
+  z-index: 4;
+  height: 40vh;
+  margin-top: -8vh;
+  background-color: white;
+  border-radius: 2rem;
+}
+.articlePopUp h3 {
+        font-family: 'Poppins', sans-serif;
+font-size: 2rem;
+padding-top: 1rem;
+color: #010101;
+padding-top:1rem;
+}
+
+.articlePopUp .pris {
+  color: #010101;
+  font-size: 1.5rem;
+}
+
+
+
+
+.luk_container {
+   height: 55px;
+  width: 55px;
+  
+  display: inline-block;
+  background-color: #0101017c;
+  border-radius: 50%;
+   position: fixed;
+        font-size: 1.7em;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+        left: 7vw;
+        top: 10vh;
+        z-index: 4;
+}
+       #luk {
+        position: fixed;
+        padding-left: 0.4rem;
+        padding-bottom: 0.4rem;
+        font-size: 1.7em;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+        left: 7vw;
+        top: 10vh;
+        z-index: 5;
+      }
+
+      .blur {
+           filter: blur(4px);
+  -webkit-filter: blur(4px);
+      }
+
+      
+      @media screen and (min-width: 600px) {
+              #popUp .articlePopUp {
+        width: 400px;
+        position: fixed;
+        left: 25%;
+        display: block;
+        margin: 4rem auto;
+        border-radius: 2rem;
+       
+        background-color: white;
+      }
+
+     .billedeMenu {
+          /* transform: translateX(5vw); */
+          width:100%;
+  height:300px;
+           object-fit:cover;
+  border-radius:2rem;
+      }
+
+
+.navn {
+        font-family: 'Poppins', sans-serif;
+font-size: 2rem;
+padding: 0rem;
+color: #010101;
+}
+
+.articlePopUp p h3 {
+  margin-left: 2rem;
+}
+
+.pris {
+  margin-top: -2rem;
+
+}
+
+.luk_container {
+   height: 55px;
+  width: 55px;
+  display: inline-block;
+  background-color: #0101017c;
+  border-radius: 50%;
+   position: fixed;
+        font-size: 1.7em;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+        left: 25vw;
+        top: 10.5vh;
+        z-index: 4;
+}
+
+    #luk {
+        position: fixed;
+        padding-left: 0.4rem;
+        padding-bottom: 0.4rem;
+        font-size: 1.7em;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+        left: 25vw;
+        top: 10vh;
+        z-index: 5;
+      }
+
+      }
+
+@media screen and (min-width: 800px){
+
+button {
+  font-size: 1rem;
+}
+
+
+}
+
+@media screen and (min-width: 1000px) {
+  .luk_container {
+   height: 50px;
+  width: 50px;
+  
+  display: inline-block;
+  background-color: #0101017c;
+  border-radius: 50%;
+   position: fixed;
+        font-size: 1.6em;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+        left: 37vw;
+        top: 10vh;
+        z-index: 4;
+}
+       #luk {
+        position: fixed;
+        padding-left: 0.4rem;
+        padding-bottom: 0.4rem;
+        font-size: 1.6em;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+        left: 37vw;
+        top: 9.5vh;
+        z-index: 5;
+      }
+
+        #popUp .articlePopUp {
+        width: 400px;
+        position: fixed;
+        left: 37%;
+        display: block;
+        margin: 4rem auto;
+        border-radius: 2rem;
+       
+        background-color: white;
+      }
+
+}
 
     </style>
   </head>
@@ -149,33 +417,40 @@ cursor: pointer
       </nav>
 </header>
        <section id="popUp">
+         <div class="luk_container">
       <div id="luk">&#x2715
+      </div>
       </div>
       <article class="articlePopUp">
         <img src="" alt="" class="billedeMenu" />
         <!-- <h2></h2> -->
-        <h3><span class="titel"></span></h3>
-        <p><span class="navn"></span></p>
+        <div class="p_container_popup">
+     
+        <h3><span class="navn"></span></h3>
          <p> <span class="oprindelsesregion"></span></p>
-       <p><span class="pris"></span></p>
+       
         <p><span class="langbeskrivelse"></span></p>
+        <p><span class="pris"></span></p>
+        </div>
       </article>
     </section>
 
 
      
 
-      <h3></h3>
+    
     <section class="menuContainer"></section>
-    <template>
+    <template class="temp">
       <article class="temp_menuListe">
         <img src="" alt="" class="temp_billedeMenu" />
+        <div class="p_container">
         <h3 class="temp_menuNavn"></h3>
         <p class="temp_kortBeskrivelse"></p>
-
-        <p class="temp_langBeskrivelse"></p>
-        <p class="temp_oprindelsesRegion"></p>
+        
+        <!-- <p class="temp_langBeskrivelse"></p>
+        <p class="temp_oprindelsesRegion"></p> -->
         <p class="temp_pris"></p>
+        </div>
       </article>
     </template>
 
@@ -238,18 +513,21 @@ cursor: pointer
 
           function visDetaljer (menu) {
 const popUp = document.querySelector("#popUp");
+const top_titel = document.querySelector(".top_titel")
 popUp.style.display = "block";
 main.classList.add("blur");
 babushkaHeader.classList.add("blur");
+top_titel.classList.add("blur");
 popUp.querySelector("img").src = "./medium/" + menu.billednavn + "-md.jpg";
 popUp.querySelector(".navn").textContent = menu.navn;
-popUp.querySelector(".oprindelsesregion").textContent = menu.oprindelsesregion;
+popUp.querySelector(".oprindelsesregion").textContent ="Opringendelsessted: " + menu.oprindelsesregion;
 popUp.querySelector(".langbeskrivelse").textContent= menu.langbeskrivelse;
 popUp.querySelector(".pris").textContent = menu.pris + " dkk";
 
 document.querySelector("#luk").addEventListener("click", () => (popUp.style.display ="none"))
 document.querySelector("#luk").addEventListener("click", ()=> main.classList.remove("blur"))
 document.querySelector("#luk").addEventListener("click", ()=> babushkaHeader.classList.remove("blur"))
+document.querySelector("#luk").addEventListener("click", ()=> top_titel.classList.remove("blur"))
           }
 
       }
