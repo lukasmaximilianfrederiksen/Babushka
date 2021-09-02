@@ -5,18 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@600;700&family=Poppins&display=swap" rel="stylesheet"> 
     <style>
+
+        .top_titel {
+           
+        }
+h1 {
+    text-align: center;
+font-family: 'Playfair Display', serif;
+font-size: 10vw;
+color: #010101;
+}
+
+h3 {
+        font-family: 'Poppins', sans-serif;
+font-size: 1.5xrem;
+    
+}
+
+body {
+    background-color: #F8F8F8;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    
+}
+
+p {
+       font-family: 'Poppins', sans-serif;
+font-size: 1rem;
+color: rgba(0, 0, 0, 0.411);
+}
+
+
+.temp_pris {
+    color: rgba(0, 0, 0, 0.89);
+}
+header {
+    
+}
 
         img {
             width: 100%;
+            margin: auto;
+        display: block;
         }
         .selected {
-        background-color: rgb(235, 21, 224);
+        background-color: #FC9E14;
+        color:rgba(0, 0, 0, 0.89)
       }
 .menuContainer {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem
       }
+
+
+      .billedeMenu {
+          transform: translateX(5vw);
+          width:300px;
+  height:300px;
+           object-fit:cover;
+  border-radius:10%;
+      }
+
+
          #popUp {
         display: none;
         position: fixed;
@@ -24,12 +79,15 @@
         top: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.6);
         overflow: scroll;
+        z-index: 1;
       }
 
           #popUp .articlePopUp {
-        width: 80vw;
+        width: 30vw;
+        position: fixed;
+        left: 35%;
         display: block;
         margin: 4rem auto;
         border-radius: 25px;
@@ -44,15 +102,51 @@
         font-weight: bolder;
         color: #010101;
         cursor: pointer;
-        left: 10vw;
+        left: 34vw;
         top: 10vh;
+        z-index: 2;
       }
+
+      .blur {
+           filter: blur(4px);
+  -webkit-filter: blur(4px);
+      }
+
+
+      button {
+          display:inline-block;
+          border: white;
+padding:0.35em 1.2em;
+background-color: white;
+margin:0 0.3em 0.3em 0;
+border-radius:0.90em;
+box-sizing: border-box;
+text-decoration:none;
+       font-family: 'Poppins', sans-serif;
+font-size: 1rem;
+color: rgba(0, 0, 0, 0.411);
+font-weight:300;
+
+text-align:center;
+transition: all 0.2s;
+cursor: pointer
+    }
+
     </style>
   </head>
 
   <body>
-<header>
-    <h1>Basbushka</h1>
+      <div class="top_titel">
+          <h1>Babushka</h1>
+      </div>
+<header id="babushkaHeader">
+    
+     <nav>
+        <button data-kategori="alle" class="alleValgt_btn">Alle</button>
+        <button data-kategori="forretter" class="forret_btn">Forretter</button>
+        <button data-kategori="hovedretter" class="hovedret_btn">Hovedretter</button>
+        <button data-kategori="desserter" class="dessert_btn">Desserter</button>
+      </nav>
 </header>
        <section id="popUp">
       <div id="luk">&#x2715
@@ -69,18 +163,13 @@
     </section>
 
 
-      <nav>
-        <button data-kategori="alle" class="alleValgt_btn">Alle</button>
-        <button data-kategori="forretter" class="forret_btn">Forretter</button>
-        <button data-kategori="hovedretter" class="hovedret_btn">Hovedretter</button>
-        <button data-kategori="desserter" class="dessert_btn">Desserter</button>
-      </nav>
+     
 
       <h3></h3>
     <section class="menuContainer"></section>
     <template>
       <article class="temp_menuListe">
-        <img src="" alt="" class="billedeMenu" />
+        <img src="" alt="" class="temp_billedeMenu" />
         <h3 class="temp_menuNavn"></h3>
         <p class="temp_kortBeskrivelse"></p>
 
@@ -150,6 +239,8 @@
           function visDetaljer (menu) {
 const popUp = document.querySelector("#popUp");
 popUp.style.display = "block";
+main.classList.add("blur");
+babushkaHeader.classList.add("blur");
 popUp.querySelector("img").src = "./medium/" + menu.billednavn + "-md.jpg";
 popUp.querySelector(".navn").textContent = menu.navn;
 popUp.querySelector(".oprindelsesregion").textContent = menu.oprindelsesregion;
@@ -157,6 +248,8 @@ popUp.querySelector(".langbeskrivelse").textContent= menu.langbeskrivelse;
 popUp.querySelector(".pris").textContent = menu.pris + " dkk";
 
 document.querySelector("#luk").addEventListener("click", () => (popUp.style.display ="none"))
+document.querySelector("#luk").addEventListener("click", ()=> main.classList.remove("blur"))
+document.querySelector("#luk").addEventListener("click", ()=> babushkaHeader.classList.remove("blur"))
           }
 
       }
